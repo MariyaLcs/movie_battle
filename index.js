@@ -8,7 +8,16 @@ const fetchData = async searchTerm => {
   console.log(response.data);
 };
 
+let timeoutId;
+
+const onInput = event => {
+  setTimeout(() => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    fetchData(event.target.value);
+  }, 1000);
+};
+
 const input = document.querySelector("input");
-input.addEventListener("input", event => {
-  fetchData(event.target.value);
-});
+input.addEventListener("input", onInput);
