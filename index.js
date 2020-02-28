@@ -6,7 +6,7 @@ const fetchData = async searchTerm => {
     }
   });
 
-  if (redsponse.data.Error) {
+  if (response.data.Error) {
     return [];
   }
   return response.data.Search;
